@@ -1,6 +1,6 @@
 {
-  "name": "Funky Heart Calculator",
-  "short_name": "HeartCalc",
+  "name": "NS Heart Calculator",
+  "short_name": "NS Calculator",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
