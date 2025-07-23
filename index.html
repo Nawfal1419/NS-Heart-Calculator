@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Heart Calculator</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="calculator">
+    <div id="display" class="display">0</div>
+    <div class="buttons">
+        <!-- First row -->
+        <button class="heart-btn" onclick="clearDisplay()"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">AC</div></button>
+        <button class="heart-btn" onclick="deleteLast()"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">CE</div></button>
+        <button class="heart-btn" onclick="append('%')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">%</div></button>
+        <button class="heart-btn" onclick="append('/')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">÷</div></button>
+
+        <!-- Second row -->
+        <button class="heart-btn" onclick="append('7')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">7</div></button>
+        <button class="heart-btn" onclick="append('8')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">8</div></button>
+        <button class="heart-btn" onclick="append('9')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">9</div></button>
+        <button class="heart-btn" onclick="append('*')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">×</div></button>
+
+        <!-- Third row -->
+        <button class="heart-btn" onclick="append('4')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">4</div></button>
+        <button class="heart-btn" onclick="append('5')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">5</div></button>
+        <button class="heart-btn" onclick="append('6')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">6</div></button>
+        <button class="heart-btn" onclick="append('-')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">−</div></button>
+
+        <!-- Fourth row -->
+        <button class="heart-btn" onclick="append('1')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">1</div></button>
+        <button class="heart-btn" onclick="append('2')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">2</div></button>
+        <button class="heart-btn" onclick="append('3')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">3</div></button>
+        <button class="heart-btn" onclick="append('+')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">+</div></button>
+
+        <!-- Last row -->
+        <button class="heart-btn" onclick="append('00')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">00</div></button>
+        <button class="heart-btn" onclick="append('0')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">0</div></button>
+        <button class="heart-btn" onclick="append('.')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">.</div></button>
+        <button class="heart-btn" onclick="calculate()"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">=</div></button>
+    </div>
+</div>
+
+<script>
+    let display = document.getElementById('display');
+    function append(value) {
+        if (display.textContent === '0') display.textContent = '';
+        display.textContent += value;
+    }
+    function clearDisplay() {
+        display.textContent = '0';
+    }
+    function deleteLast() {
+        if (display.textContent.length > 1) {
+            display.textContent = display.textContent.slice(0, -1);
+        } else {
+            display.textContent = '0';
+        }
+    }
+    function calculate() {
+        try {
+            display.textContent = eval(display.textContent.replace('×', '*').replace('÷', '/'));
+        } catch {
+            display.textContent = 'Error';
+        }
+    }
+
+    if ("serviceWorker" in navigator) {
+         navigator.serviceWorker.register("service-worker.js")
+         .then(reg => console.log("Service worker registered 💖", reg))
+        .catch(err => console.error("Service worker failed 😢", err));
+    }
+</script>
+
+</body>
+</html>
