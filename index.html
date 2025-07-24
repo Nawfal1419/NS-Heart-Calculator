@@ -70,10 +70,12 @@
         const raw = display.textContent.trim();
 
         if (raw === '1419') {
-            display.textContent = 'I Love You 🤍❤️';
+            display.textContent = 'ɪ ʟᴏᴠᴇ ʏᴏᴜ 🤍❤️';
         } else if (raw === '1082010' || raw === '1082011') {
-            display.textContent = 'Happy Birthday Jerry🌎😘';
-        } else {
+            display.textContent = 'ʜᴀᴘᴘʏ ʙɪʀᴛʜᴅᴀʏ ᴊᴇʀʀʏ🌍👸🏻';
+        } else if (raw === '1082010+13052006' || raw === '1082011+13052006') {
+            display.textContent = 'ᴡɪʟʟ ʏᴏᴜ ᴍᴀʀʀʏ ᴍᴇ?💍🤌🏻';
+        }else {
             try {
                 display.textContent = eval(raw.replace('×', '*').replace('÷', '/'));
             } catch {
