@@ -82,3 +82,96 @@ body {
         transform: translateY(1px) scale(0.98);
         filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
     }
+
+    /* Gift & Video Styles */
+    #gift-container {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 1000;
+    }
+
+    #gift-box {
+        width: 150px;
+        cursor: pointer;
+        animation: dropGift 1s ease-out;
+        transition: transform 0.3s ease;
+    }
+
+    #gift-box:hover {
+        transform: scale(1.2) rotate(5deg);
+    }
+
+    @keyframes dropGift {
+        0% { transform: translateY(-300px) scale(0.5); opacity: 0; }
+        100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .bloom-out {
+        animation: bloomOut 0.6s forwards;
+    }
+
+    @keyframes bloomOut {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(0.8); opacity: 0; }
+    }
+
+    .blast {
+        animation: blastGift 0.8s forwards;
+    }
+
+    @keyframes blastGift {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.5) rotate(20deg); }
+        100% { transform: scale(0); opacity: 0; }
+    }
+
+    #surprise-video {
+        display: none;
+        max-width: 90%;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    #video-play {
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 📱 Small screens (mobile) */
+@media (max-width: 600px) {
+    #video-play {
+        width: 95%;       /* Almost full width on small screens */
+        max-width: 350px; /* Avoids being too large */
+    }
+}
+
+/* 💻 Medium screens (tablet) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    #video-play {
+        width: 85%;
+        max-width: 600px;
+    }
+}
+
+/* 🖥️ Large screens (desktop) */
+@media (min-width: 1025px) {
+    #video-play {
+        width: 70%;      /* More elegant on big screens */
+        max-width: 800px;
+    }
+}
