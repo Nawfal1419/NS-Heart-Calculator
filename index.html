@@ -6,7 +6,7 @@
 <title>3D Heart Calculator</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <meta name="theme-color" content="#ff3b3b">
 </head>
 <body>
@@ -45,9 +45,20 @@
         <button class="heart-btn" onclick="calculate()"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">=</div></button>
     </div>
 </div>
+<!-- Gift & Video Container -->
+<div id="gift-container" style="display:none;">
+    <img id="gift-box" src="icons/Gift_image.png" alt="Gift Box">
+    <video id="surprise-video" controls>
+        <source src="icons/Compressed_birthday_video.mp4" type="video/mp4">
+    </video>
+</div>
 
 <script>
     let display = document.getElementById('display');
+    const calculator = document.querySelector('.calculator');
+    const giftContainer = document.getElementById('gift-container');
+    const giftBox = document.getElementById('gift-box');
+    const video = document.getElementById('surprise-video');
 
     function append(value) {
         if (display.textContent === '0') display.textContent = '';
@@ -56,6 +67,14 @@
 
     function clearDisplay() {
         display.textContent = '0';
+
+        // Hide gift/video if visible
+        if (giftContainer) giftContainer.style.display = 'none';
+        video.pause();
+        video.currentTime = 0;
+
+        calculator.style.display = 'block';
+        calculator.classList.remove('bloom-out');
     }
 
     function deleteLast() {
@@ -69,13 +88,58 @@
     function calculate() {
         const raw = display.textContent.trim();
 
+        // Hide any active gift/video
+        if (giftContainer) giftContainer.style.display = 'none';
+        video.pause();
+        video.currentTime = 0;
+        calculator.style.display = 'block';
+
+        // ❤️ Secret Codes
         if (raw === '1419') {
             display.textContent = 'ɪ ʟᴏᴠᴇ ʏᴏᴜ 🤍❤️';
-        } else if (raw === '1082010' || raw === '1082011') {
+        } 
+        else if (raw === '1082010' || raw === '1082011') {
             display.textContent = '𝙃𝙖𝙥𝙥𝙮 𝘽𝙞𝙧𝙩𝙝𝙙𝙖𝙮 𝙅𝙚𝙧𝙧𝙮👸🏻🫂';
-        } else if (raw === '1082010+13052006' || raw === '1082011+13052006') {
+        } 
+        else if (raw === '1082010+13052006' || raw === '1082011+13052006') {
             display.textContent = 'ᴡɪʟʟ ʏᴏᴜ ᴍᴀʀʀʏ ᴍᴇ?💍🤌🏻';
-        }else {
+        } 
+        else if (raw === '13112022') {
+            display.textContent = '';
+            calculator.classList.add('bloom-out');
+
+            setTimeout(() => {
+                calculator.style.display = 'none';
+
+                // Reset gift & video
+                giftContainer.style.display = 'flex';
+                giftBox.style.display = 'block';
+                giftBox.classList.remove('blast');
+                video.style.display = 'none';
+                video.pause();
+                video.currentTime = 0;
+
+                // Hover animation handled by CSS
+                giftBox.onclick = () => {
+                    giftBox.classList.add('blast');
+                    setTimeout(() => {
+                        giftBox.style.display = 'none';
+                        video.style.display = 'block';
+                        video.play();
+                    }, 800);
+                };
+
+                video.onended = () => {
+                    giftContainer.style.display = 'none';
+                    calculator.style.display = 'block';
+                    calculator.classList.remove('bloom-out');
+                    display.textContent = '0';
+                };
+
+            }, 600);
+        } 
+        else {
+            // Normal calculation
             try {
                 display.textContent = eval(raw.replace('×', '*').replace('÷', '/'));
             } catch {
@@ -84,11 +148,14 @@
         }
     }
 
+    // Service Worker
     if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("service-worker.js")
             .then(reg => console.log("Service worker registered 💖", reg))
             .catch(err => console.error("Service worker failed 😢", err));
     }
+
 </script>
+
 </body>
 </html>
