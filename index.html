@@ -47,10 +47,14 @@
 </div>
 <!-- Gift & Video Container -->
 <div id="gift-container" style="display:none;">
-    <img id="gift-box" src="Gift_image.png" alt="Gift Box">
-    <video id="surprise-video" controls autoplay muted playsinline preload="auto">
-      <source src="https://drive.google.com/uc?id=1Fnlr7SpIM-W5qmC4PrTy0eZL52oXz-GF&export=download" type="video/mp4">
-    </video>
+    <img id="gift-box" src="icons/Gift_image.png" alt="Gift Box">
+    <div id="video-frame" style="display:none;">
+        <iframe id="surprise-video" width="100%" height="100%" frameborder="0"
+            src="https://drive.google.com/file/d/1lTMTr8jGWzRH9XpSSO8gHfA5BMSGpuVj/view?usp=drive_link"
+            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+
 </div>
 
 <script>
@@ -58,6 +62,7 @@
     const calculator = document.querySelector('.calculator');
     const giftContainer = document.getElementById('gift-container');
     const giftBox = document.getElementById('gift-box');
+    const videoFrame = document.getElementById('video-frame');
     const video = document.getElementById('surprise-video');
 
     function append(value) {
@@ -70,9 +75,7 @@
 
         // Hide gift/video if visible
         if (giftContainer) giftContainer.style.display = 'none';
-        video.pause();
-        video.currentTime = 0;
-
+        videoFrame.style.display = 'none';
         calculator.style.display = 'block';
         calculator.classList.remove('bloom-out');
     }
@@ -90,8 +93,6 @@
 
         // Hide any active gift/video
         if (giftContainer) giftContainer.style.display = 'none';
-        video.pause();
-        video.currentTime = 0;
         calculator.style.display = 'block';
 
         // ❤️ Secret Codes
@@ -110,38 +111,42 @@
 
             setTimeout(() => {
                 calculator.style.display = 'none';
-
-                // Reset gift & video
                 giftContainer.style.display = 'flex';
                 giftBox.style.display = 'block';
                 giftBox.classList.remove('blast');
-                video.style.display = 'none';
-                video.pause();
-                video.currentTime = 0;
+                videoFrame.style.display = 'none';
+                video.src = '';
 
-                // Hover animation handled by CSS
                 giftBox.onclick = () => {
                     giftBox.classList.add('blast');
+
                     setTimeout(() => {
                         giftBox.style.display = 'none';
-                        video.style.display = 'block';
-                        video.play();
+                        window.open("https://drive.google.com/file/d/1lTMTr8jGWzRH9XpSSO8gHfA5BMSGpuVj/view?usp=sharing", "_blank");
                     }, 800);
                 };
 
-                video.onended = () => {
+                setTimeout(() => {
+                    video.src = '';
+                    videoFrame.style.display = 'none';
                     giftContainer.style.display = 'none';
                     calculator.style.display = 'block';
                     calculator.classList.remove('bloom-out');
                     display.textContent = '0';
-                };
-
+                }, 40000);
             }, 600);
         } 
+        
+        // ✅ Add this final else block to handle normal math calculations
         else {
-            // Normal calculation
             try {
-                display.textContent = eval(raw.replace('×', '*').replace('÷', '/'));
+                const expression = raw
+                    .replace(/×/g, '*')
+                    .replace(/÷/g, '/')
+                    .replace(/−/g, '-')   // Unicode minus to normal minus
+                    .replace(/%/g, '/100'); // Optional: Treat 50% as 0.5
+
+                display.textContent = eval(expression);
             } catch {
                 display.textContent = 'Error';
             }
@@ -156,12 +161,5 @@
     }
 
 </script>
-
 </body>
 </html>
-
-
-
-
-
-
