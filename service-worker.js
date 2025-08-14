@@ -4,9 +4,9 @@ const urlsToCache = [
   "./index.html",
   "./styles.css",
   "./script.js",
-  "./manifest.json"
-  "./Gift_image.png"
-  "./Compressed_birthday_video.mp4"
+  "./manifest.json",
+  "./Gift_image.png",
+  "./Compressed_birthday_video.mp4",
   // Add your icon paths here if needed
 ];
 
@@ -25,3 +25,4 @@ self.addEventListener("fetch", event => {
     })
   );
 });
+
