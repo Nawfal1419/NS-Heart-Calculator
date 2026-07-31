@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Gallery Management</title>
+
+<link rel="stylesheet" href="../../css/gallery.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<button id="backBtn">← Dashboard</button>
+
+<h1>📸 Gallery Management</h1>
+
+<div class="form">
+
+<input
+id="galleryId"
+type="hidden">
+
+<label>Title</label>
+
+<input
+id="title"
+type="text"
+placeholder="Image title">
+
+<label>Memory Date</label>
+
+<input
+id="memoryDate"
+type="date">
+
+<label>Image URL</label>
+
+<input
+id="imageUrl"
+type="text"
+placeholder="Paste Google Drive Image URL">
+
+<button id="saveBtn">
+
+Save Image
+
+</button>
+
+</div>
+
+<h2>Gallery Images</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>Preview</th>
+
+<th>Title</th>
+
+<th>Date</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="galleryTableBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script src="../../js/gallery.js"></script>
+
+</body>
+</html>

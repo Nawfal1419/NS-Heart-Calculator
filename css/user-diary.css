@@ -1,0 +1,119 @@
+body{
+
+    margin:0;
+    background:#fff5f7;
+    font-family:'Segoe UI',sans-serif;
+
+}
+
+.container{
+
+    width:90%;
+    max-width:900px;
+    margin:auto;
+    padding:30px;
+
+}
+
+h1{
+
+    text-align:center;
+    margin-bottom:40px;
+
+}
+
+.memory{
+
+    background:white;
+    border-left:6px solid #e63946;
+    border-radius:18px;
+    padding:25px;
+    margin-bottom:35px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.date{
+
+    color:#ff4081;
+    font-weight:bold;
+
+}
+
+.title{
+
+    font-size:24px;
+    margin:15px 0;
+
+}
+
+.content{
+
+    white-space:pre-wrap;
+    line-height:1.8;
+
+}
+
+.preview{
+
+    color:#666;
+    line-height:28px;
+    margin-bottom:20px;
+
+}
+
+.read-btn{
+
+    background:#e63946;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.read-btn:hover{
+
+    background:#c82333;
+
+}
+
+#backBtn{
+
+position:fixed;
+
+top:25px;
+
+left:25px;
+
+width:170px;
+
+padding:12px;
+
+background:#e63946;
+
+color:white;
+
+border:none;
+
+border-radius:8px;
+
+cursor:pointer;
+
+z-index:1000;
+
+}
+
+#backBtn:hover{
+
+background:#d62839;
+
+}

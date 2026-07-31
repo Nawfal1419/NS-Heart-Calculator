@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary Management</title>
+
+    <link rel="stylesheet" href="../../css/diary.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <h1>Diary Management</h1>
+
+        </div>
+
+        <div class="form-section">
+
+            <h2>Add / Edit Memory</h2>
+
+            <input
+                type="hidden"
+                id="diaryId">
+
+            <label>Title</label>
+
+            <input
+                type="text"
+                id="title"
+                placeholder="Enter title">
+
+            <label>Memory Date</label>
+
+            <input
+                type="date"
+                id="memoryDate">
+
+            <label>Content</label>
+
+            <textarea
+                id="content"
+                rows="8"
+                placeholder="Write your memory..."></textarea>
+
+            <button id="saveBtn">
+                Save Memory
+            </button>
+
+        </div>
+
+        <div class="table-section">
+
+            <h2>Existing Memories</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Date</th>
+
+                        <th>Title</th>
+
+                        <th>Created</th>
+
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="diaryTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <button id="backBtn">← Dashboard</button>
+
+    <script src="../../js/diary.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MemoryVault Admin</title>
+
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>❤️ MemoryVault ❤️</h1>
+
+    <h2>Administrator Panel</h2>
+
+    <p class="welcome">
+        Welcome Back,
+        <span id="adminName">Admin</span> ❤️
+    </p>
+
+    <div class="grid">
+
+        <div class="card" onclick="openDiary()">
+            <h3>📖 Diary</h3>
+            <p>Manage Memories</p>
+        </div>
+
+        <div class="card" onclick="openGallery()">
+            <h3>🖼 Gallery</h3>
+            <p>Manage Photos</p>
+        </div>
+
+        <div class="card" onclick="openGifts()">
+            <h3>🎁 Gifts</h3>
+            <p>Manage Gifts</p>
+        </div>
+
+        <div class="card" onclick="openVoices()">
+            <h3>🎵 Voices</h3>
+            <p>Our KindOf Love</p>
+        </div>
+
+        <div class="card" onclick="openUsers()">
+            <h3>👤 Users</h3>
+            <p>Manage Users</p>
+        </div>
+
+        <div class="card logout" onclick="logout()">
+            <h3>🚪 Logout</h3>
+            <p>Leave MemoryVault</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../../js/dashboard.js"></script>
+
+</body>
+
+</html>

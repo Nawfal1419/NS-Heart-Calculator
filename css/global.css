@@ -1,0 +1,38 @@
+/* ========== COLORS ========== */
+
+:root{
+
+    --red:#E63946;
+    --white:#FFFFFF;
+
+}
+
+/* ========== RESET ========== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ========== BODY ========== */
+
+body{
+
+    background:var(--white);
+    color:var(--red);
+
+    font-family:
+        "Segoe UI",
+        sans-serif;
+
+}
+
+/* ========== BUTTON ========== */
+
+button{
+
+    cursor:pointer;
+    transition:.3s;
+
+}

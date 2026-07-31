@@ -1,0 +1,219 @@
+body{
+
+    margin:0;
+
+    background:#fff5f7;
+
+    font-family:'Segoe UI',sans-serif;
+
+}
+
+.container{
+
+    width:90%;
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:40px 20px;
+
+}
+
+h1{
+
+    text-align:center;
+
+    color:#e63946;
+
+    margin-bottom:50px;
+
+}
+
+#backBtn{
+
+    position:fixed;
+
+    top:30px;
+
+    left:40px;
+
+    padding:12px 22px;
+
+    background:#e63946;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    z-index:1000;
+
+}
+
+.voice{
+
+    width:70%;
+
+    padding:20px;
+
+    margin-bottom:35px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    animation:fade .5s ease;
+
+}
+
+.left{
+
+    margin-right:auto;
+
+    background:#fff;
+
+    border-left:6px solid #e63946;
+
+}
+
+.right{
+
+    margin-left:auto;
+
+    background:#ffe8ee;
+
+    border-right:6px solid #ff66a3;
+
+}
+
+.title{
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    margin-bottom:10px;
+
+}
+
+.speaker{
+
+    color:#ff4081;
+
+    font-weight:bold;
+
+    margin-bottom:10px;
+
+}
+
+.desc{
+
+    line-height:1.8;
+
+    margin-bottom:15px;
+
+}
+
+.date{
+
+    color:#666;
+
+    margin-bottom:20px;
+
+}
+
+.listen{
+
+    background:#e63946;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.listen:hover{
+
+    background:#c82333;
+
+}
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.modal-content{
+
+    width:90%;
+
+    max-width:500px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+}
+
+#audioPlayer{
+
+    width:100%;
+
+    margin-top:25px;
+
+}
+
+#closeModal{
+
+    float:right;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}

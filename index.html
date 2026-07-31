@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NS Calculator</title>
+<link rel="stylesheet" href="../../css/global.css">
+<link rel="stylesheet" href="../../css/calculator.css">
+<link rel="manifest" href="../../manifest.json">
+<link rel="apple-touch-icon" href="../../assets/icons/icon-192.png"><meta name="theme-color" content="#ff3b3b">
+</head>
+<body>
+
+<div class="calculator">
+    <div id="display" class="display">0</div>
+    <div class="buttons">
+        <!-- First row -->
+        <button class="heart-btn" onclick="clearDisplay()"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">AC</div></button>
+        <button class="heart-btn" onclick="deleteLast()"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">CE</div></button>
+        <button class="heart-btn" onclick="append('%')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">%</div></button>
+        <button class="heart-btn" onclick="append('/')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">÷</div></button>
+
+        <!-- Second row -->
+        <button class="heart-btn" onclick="append('7')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">7</div></button>
+        <button class="heart-btn" onclick="append('8')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">8</div></button>
+        <button class="heart-btn" onclick="append('9')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">9</div></button>
+        <button class="heart-btn" onclick="append('*')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">×</div></button>
+
+        <!-- Third row -->
+        <button class="heart-btn" onclick="append('4')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">4</div></button>
+        <button class="heart-btn" onclick="append('5')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">5</div></button>
+        <button class="heart-btn" onclick="append('6')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">6</div></button>
+        <button class="heart-btn" onclick="append('-')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">−</div></button>
+
+        <!-- Fourth row -->
+        <button class="heart-btn" onclick="append('1')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">1</div></button>
+        <button class="heart-btn" onclick="append('2')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">2</div></button>
+        <button class="heart-btn" onclick="append('3')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">3</div></button>
+        <button class="heart-btn" onclick="append('+')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">+</div></button>
+
+        <!-- Last row -->
+        <button class="heart-btn" onclick="append('00')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">00</div></button>
+        <button class="heart-btn" onclick="append('0')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">0</div></button>
+        <button class="heart-btn" onclick="append('.')"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">.</div></button>
+        <button class="heart-btn" onclick="calculate()"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.4,2-8,4.9C13.8,2,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,11.1,16,22.2,16,22.2s16-11.1,16-22.2C32,3.3,28.7,0,24.6,0H23.6z"/></svg><div class="heart-text">=</div></button>
+    </div>
+</div>
+<!-- Gift & Video Container -->
+<div id="gift-container" style="display:none;">
+<img id="gift-box" src="../../assets/icons/Gift_image.png" alt="Gift Box">
+    <div id="video-frame" style="display:none;">
+        <iframe id="surprise-video" width="100%" height="100%" frameborder="0"
+            src="https://drive.google.com/file/d/1lTMTr8jGWzRH9XpSSO8gHfA5BMSGpuVj/view?usp=drive_link"
+            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+
+</div>
+<script src="../../js/calculator.js"></script>
+</body>
+</html>

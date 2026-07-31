@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Voices</title>
+
+    <link rel="stylesheet" href="../../css/voices.css">
+
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>🎙️ Manage Our Voices</h1>
+
+        <form id="voiceForm">
+
+            <input
+                type="text"
+                id="title"
+                placeholder="Title"
+                required
+            >
+
+            <textarea
+                id="description"
+                placeholder="Description"
+                rows="5"
+                required
+            ></textarea>
+
+            <input
+                type="date"
+                id="voiceDate"
+                required
+            >
+
+            <select id="speaker">
+
+                <option value="NAWFAL">Nawfal</option>
+                <option value="JERRY">Jerry</option>
+
+            </select>
+
+            <input
+                type="text"
+                id="driveUrl"
+                placeholder="Google Drive URL"
+                required
+            >
+
+            <button
+                type="button"
+                id="saveBtn">
+
+                Save Voice
+
+            </button>
+
+            <input
+                type="hidden"
+                id="voiceId"
+            >
+
+        </form>
+
+        <hr>
+
+        <h2>🎙️ Voices</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Speaker</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="voiceTableBody">
+
+            </tbody>
+
+        </table>
+
+        <div id="voiceList"></div>
+
+    </div>
+    <button id="backBtn">← Dashboard</button>
+
+    <script src="../../js/voices.js"></script>
+
+</body>
+</html>
