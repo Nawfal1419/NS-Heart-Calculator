@@ -1,0 +1,191 @@
+body {
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .calculator {
+        background: #f8f8f8;
+        padding: 20px;
+        border-radius: 20px;
+        width: 320px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .display {
+        background: #fff;
+        height: 50px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        text-align: right;
+        font-size: 1.5rem;
+        line-height: 50px;
+        padding: 0 10px;
+        overflow: hidden;
+        color: #c0392b;
+        border: 1px solid #ccc;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+
+    .heart-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        width: 60px;
+        height: 60px;
+        position: relative;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .heart-btn svg {
+        width: 100%;
+        height: 100%;
+        fill: #fff;
+        stroke: #c0392b;
+        stroke-width: 2;
+        transition: all 0.3s ease;
+        filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+    }
+
+    .heart-btn:hover svg {
+        fill: #c0392b;
+        stroke: #c0392b;
+        transform: translateY(-2px) scale(1.05);
+        filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+    }
+
+    .heart-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1rem;
+        font-weight: bold;
+        color: #c0392b;
+        pointer-events: none;
+    }
+
+    .heart-btn:hover .heart-text {
+        color: #fff;
+    }
+
+    .heart-btn:active svg {
+        transform: translateY(1px) scale(0.98);
+        filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+    }
+
+    /* Gift & Video Styles */
+    #gift-container {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 1000;
+    }
+
+    #gift-box {
+        width: 150px;
+        cursor: pointer;
+        animation: dropGift 1s ease-out;
+        transition: transform 0.3s ease;
+    }
+
+    #gift-box:hover {
+        transform: scale(2.0) rotate(5deg);
+    }
+
+    @keyframes dropGift {
+        0% { transform: translateY(-300px) scale(0.5); opacity: 0; }
+        100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .bloom-out {
+        animation: bloomOut 0.6s forwards;
+    }
+
+    @keyframes bloomOut {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(0.8); opacity: 0; }
+    }
+
+    .blast {
+        animation: blastGift 0.8s forwards;
+    }
+
+    @keyframes blastGift {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.5) rotate(20deg); }
+        100% { transform: scale(0); opacity: 0; }
+    }
+
+    #video-frame {
+        width: 90%;
+        max-width: 800px;
+        aspect-ratio: 16 / 9;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    #video-frame iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    #surprise-video {
+        max-width: 90%;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    #video-play {
+    width: 80%;
+    max-width: 800px;
+    height: 450px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 📱 Small screens (mobile) */
+@media (max-width: 600px) {
+    #video-play {
+        width: 95%;       /* Almost full width on small screens */
+        max-width: 350px; /* Avoids being too large */
+    }
+}
+
+/* 💻 Medium screens (tablet) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    #video-play {
+        width: 85%;
+        max-width: 600px;
+    }
+}
+
+/* 🖥️ Large screens (desktop) */
+@media (min-width: 1025px) {
+    #video-play {
+        width: 70%;      /* More elegant on big screens */
+        max-width: 800px;
+    }
+}
